@@ -303,7 +303,7 @@ const StaffingView = () => {
                 </div>
                 <div className="flex items-center space-x-1">
                   <div className="w-4 h-4 bg-red-500 rounded"></div>
-                  <span className="text-xs">Overloaded (>1.5 FTE)</span>
+                  <span className="text-xs">Overloaded (&gt;1.5 FTE)</span>
                 </div>
               </div>
             </div>
