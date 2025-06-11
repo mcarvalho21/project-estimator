@@ -4,20 +4,25 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from flask import Flask, send_from_directory
-from src.models.user import db
+from src.models.user import db as user_db
+from src.models.estimator import db as estimator_db
 from src.routes.user import user_bp
+from src.routes.estimator import estimator_bp
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
 
 app.register_blueprint(user_bp, url_prefix='/api')
+app.register_blueprint(estimator_bp, url_prefix='/api')
 
-# uncomment if you need to use database
+# Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db.init_app(app)
+
+# Initialize both databases (they use the same SQLAlchemy instance)
+estimator_db.init_app(app)
 with app.app_context():
-    db.create_all()
+    estimator_db.create_all()
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
