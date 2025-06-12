@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 import { Link } from 'react-router-dom';
 import { Plus, Search, Filter, Calendar, DollarSign, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+
 
 const Dashboard = () => {
   const [estimates, setEstimates] = useState([]);

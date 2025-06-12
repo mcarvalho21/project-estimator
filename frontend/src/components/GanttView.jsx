@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+
 
 const GanttView = () => {
   const { id } = useParams();

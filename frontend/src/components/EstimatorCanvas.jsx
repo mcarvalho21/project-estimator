@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
 import { ChevronRight, ChevronDown, Edit2, Save, X, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { Slider } from '@/components/ui/slider';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+
 
 const EstimatorCanvas = () => {
   const { id } = useParams();
